@@ -56,24 +56,24 @@ public class Hero : MonoBehaviour
 		bool movingIntoScreenEdge = (horizontal > 0 && this.FacingRight) || (horizontal < 0 && !this.FacingRight);
 		if (this.AtEdgeOfScreen && movingIntoScreenEdge)
 		{
-			this.rigidbody2D.velocity = new Vector2(0, this.rigidbody2D.velocity.y);
+			this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, this.GetComponent<Rigidbody2D>().velocity.y);
 			horizontal = 0.0f;
 		}
 
-		if (horizontal * this.rigidbody2D.velocity.x < this.MaxSpeed)
+		if (horizontal * this.GetComponent<Rigidbody2D>().velocity.x < this.MaxSpeed)
 		{
-			this.rigidbody2D.AddForce (Vector2.right * horizontal * MoveForce);
+			this.GetComponent<Rigidbody2D>().AddForce (Vector2.right * horizontal * MoveForce);
 		}
 
 		float maxSpeed = Mathf.Abs (this.MaxSpeed * horizontal);
-		if (Mathf.Abs(this.rigidbody2D.velocity.x) > maxSpeed)
+		if (Mathf.Abs(this.GetComponent<Rigidbody2D>().velocity.x) > maxSpeed)
 		{
-			this.rigidbody2D.velocity = new Vector2(Mathf.Sign (this.rigidbody2D.velocity.x) * maxSpeed, this.rigidbody2D.velocity.y);
+			this.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Sign (this.GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, this.GetComponent<Rigidbody2D>().velocity.y);
 		}
 
 		if (this.ShouldJump)
 		{
-			this.rigidbody2D.AddForce (Vector2.up * JumpForce);
+			this.GetComponent<Rigidbody2D>().AddForce (Vector2.up * JumpForce);
 			this.ShouldJump = false;
 		}
 
@@ -91,7 +91,7 @@ public class Hero : MonoBehaviour
 			{
 				launchForce = new Vector2(launchForce.x * -1.0f, launchForce.y);
 			}
-			projectile.rigidbody2D.AddForce(launchForce);
+			projectile.GetComponent<Rigidbody2D>().AddForce(launchForce);
 		}
 
 	}

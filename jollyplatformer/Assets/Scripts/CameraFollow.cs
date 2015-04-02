@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour
 
 	void Start ()
 	{
-		this.InitialOrthographicSize = this.camera.orthographicSize;
+		this.InitialOrthographicSize = this.GetComponent<Camera>().orthographicSize;
 		this.TargetCameraPosition = this.transform.position;
 	}
 	
@@ -30,8 +30,8 @@ public class CameraFollow : MonoBehaviour
 	void OnPreCull ()
 	{
 		float lerpFactor = Time.deltaTime * this.FollowLerpFactor;
-		this.camera.transform.position = Vector3.Lerp(this.camera.transform.position, this.TargetCameraPosition, lerpFactor);
-		this.camera.orthographicSize = Mathf.Lerp (this.camera.orthographicSize, this.TargetCameraOrthographicSize, lerpFactor);
+		this.GetComponent<Camera>().transform.position = Vector3.Lerp(this.GetComponent<Camera>().transform.position, this.TargetCameraPosition, lerpFactor);
+		this.GetComponent<Camera>().orthographicSize = Mathf.Lerp (this.GetComponent<Camera>().orthographicSize, this.TargetCameraOrthographicSize, lerpFactor);
 	}
 
 	private Vector3 HeroesAverageLocation()

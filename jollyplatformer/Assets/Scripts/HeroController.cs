@@ -9,7 +9,8 @@ public class HeroController : MonoBehaviour
 	{
 		get
 		{
-			return Input.GetAxis (string.Format ("Horizontal[{0}]", this.PlayerNumber));
+			return this.GetComponent<GameControllerInput>().GetAxis (GameControllerInput.Axis.AnalogLeftHorizontal);
+			//return Input.GetAxis (string.Format ("Horizontal[{0}]", this.PlayerNumber));
 		}
 	}
 
@@ -17,7 +18,8 @@ public class HeroController : MonoBehaviour
 	{
 		get
 		{
-			return Input.GetButtonDown(string.Format ("Jump[{0}]", this.PlayerNumber));
+			return this.GetComponent<GameControllerInput>().GetButtonDown (GameControllerInput.Button.A);
+			//return Input.GetButtonDown(string.Format ("Jump[{0}]", this.PlayerNumber));
 		}
 	}
 
@@ -25,7 +27,8 @@ public class HeroController : MonoBehaviour
 	{
 		get
 		{
-			return Input.GetButton(string.Format ("Fire[{0}]", this.PlayerNumber));
+			return this.GetComponent<GameControllerInput>().GetButton (GameControllerInput.Button.X);
+			//return Input.GetButton(string.Format ("Fire[{0}]", this.PlayerNumber));
 		}
 	}
 }

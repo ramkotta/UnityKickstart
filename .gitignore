@@ -3,6 +3,7 @@
 /[Oo]bj/
 /[Bb]uild/
 
+*.cs*.
 *.csproj
 *.unityproj
 *.sln
@@ -13,6 +14,6 @@
 *.pidb
 *.booproj
 
-*.pibd.meta
+*.meta
 
 sysinfo.txt

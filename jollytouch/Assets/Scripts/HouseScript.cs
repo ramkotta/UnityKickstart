@@ -3,9 +3,9 @@
 using System;
 
 public class HouseScript : MonoBehaviour {
-
-	int initNumBees;
-	int numBees;
+	
+	int defendingBees;
+	int attackingBees;
 	string strNumBees = "";
 
 	System.Random rand;
@@ -31,10 +31,11 @@ public class HouseScript : MonoBehaviour {
 		double amountIncr = 0;
 		double amountDecr = 0;
 
-		numBees = rand.Next (10, 20);
-		Debug.Log ("Initial number of bees is: " + numBees);
+		defendingBees = rand.Next (10, 20);
+		attackingBees = 0;
+		Debug.Log ("Initial number of bees is: " + defendingBees);
 
-		if (numBees != 0) {
+		if (defendingBees != 0) {
 			int chanceBugSpray = rand.Next(1,4);
 			Debug.Log ("Bug spray number is: " + chanceBugSpray);
 			if (chanceBugSpray == 1) {
@@ -70,10 +71,10 @@ public class HouseScript : MonoBehaviour {
 				hiveStatus = "Bee hive present";
 			}
 			if (amountIncr != 0) {
-				numBees = (int) Math.Round(numBees - amountDecr*numBees + amountIncr*numBees);
+				defendingBees = (int) Math.Round(defendingBees - amountDecr*defendingBees + amountIncr*defendingBees);
 			}
 		}
-		Debug.Log ("Final Number of bees is: " + numBees);
+		Debug.Log ("Final Number of bees is: " + defendingBees);
 
 	}
 	
@@ -129,13 +130,14 @@ public class HouseScript : MonoBehaviour {
 				GUI.Label(new Rect(20, 110, 150, 20), "Number of beees to send in:");
 				strNumBees = GUI.TextField(new Rect(20, 130, 80, 20), strNumBees);
 				if (GUI.Button(new Rect(20, 150, 100, 20), "Attack!")){			
-					int numBees;
-					if (Int32.TryParse(strNumBees, out numBees)){
-						Debug.Log(numBees);
+					int defendingBees;
+					if (Int32.TryParse(strNumBees, out defendingBees)){
+						Debug.Log(defendingBees);
 					} else {
 						Debug.Log("Das it mane");
 					}
 					attackSetup = false;
+					mouseOver = false;
 				}
 			} else {
 				GUI.Label(new Rect(20, 140, 150, 20), "Click to attack now");

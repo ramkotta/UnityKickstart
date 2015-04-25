@@ -1,7 +1,7 @@
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
+jollytouch/[Ll]ibrary/
+jollytouch/[Tt]emp/
+jollytouch/[Oo]bj/
+jollytouch/[Bb]uild/
 
 *.cs*.
 *.csproj
@@ -13,6 +13,8 @@
 *.userprefs
 *.pidb
 *.booproj
+*.dll
+*.dll.mdb
 
 *.meta
 

@@ -6,13 +6,14 @@ public class HouseScript : MonoBehaviour {
 
 	int initNumBees;
 	int numBees;
+	string strNumBees = "";
 
 	System.Random rand;
 	public int id;
 	public Texture2D infoMenu;
 
 	bool mouseOver = false;
-	bool attacking = false;
+	bool attackSetup = false;
 
 	string bugSprayStatus;
 	string flowerStatus;
@@ -84,20 +85,21 @@ public class HouseScript : MonoBehaviour {
 	void OnMouseEnter() {
 		//this is when we display info about the house
 		//interpret the numbers we have into words
-		mouseOver = true;
+		if (!attackSetup) mouseOver = true;
 	}
 
 	void OnMouseExit() {
-		mouseOver = false;
+		if (!attackSetup) mouseOver = false;
 	}
 
 	void OnMouseDown() {
 		//this is the start of the attack phase
 		//add a textfield of some sort
+		attackSetup = true;
 	}
 
 	void OnGUI(){
-		if (mouseOver || attacking){
+		if (mouseOver || attackSetup){
 			int col = id % 3;
 			int row = id / 3;
 			float pivot_x = col * Screen.width / 3f;
@@ -123,7 +125,21 @@ public class HouseScript : MonoBehaviour {
 			if (hiveStatus != null) {
 				GUI.Label(new Rect(20, text_y, 150, 20), hiveStatus);
 			}
-			GUI.Label(new Rect(20, 140, 150, 20), "Click to attack now");
+			if (attackSetup){
+				GUI.Label(new Rect(20, 110, 150, 20), "Number of beees to send in:");
+				strNumBees = GUI.TextField(new Rect(20, 130, 80, 20), strNumBees);
+				if (GUI.Button(new Rect(20, 150, 100, 20), "Attack!")){			
+					int numBees;
+					if (Int32.TryParse(strNumBees, out numBees)){
+						Debug.Log(numBees);
+					} else {
+						Debug.Log("Das it mane");
+					}
+					attackSetup = false;
+				}
+			} else {
+				GUI.Label(new Rect(20, 140, 150, 20), "Click to attack now");
+			}
 			GUI.EndGroup();
 		}
 	}

@@ -10,11 +10,8 @@ public class BeeFlight : MonoBehaviour {
 	void Start () {
 	
 	}
-
-	void Orbit() {
-
-	}
 	
+
 	// Update is called once per frame
 	void Update () {
 	
@@ -24,19 +21,16 @@ public class BeeFlight : MonoBehaviour {
 
 		System.Random rand = new System.Random ();
 
-		float x = rand.Next (200, 300);
-		float y = rand.Next (5);
-		float z = rand.Next (5);
+		float x = rand.Next (1, 5);
+		float y = rand.Next (1, 5);
+		Debug.Log ("This bee's x velocity is: " + x);
+		Debug.Log ("This bee's y velocity is: " + y);
+		transform.Translate (0.01f*x, 0.01f*y, 0f, Space.Self);
+		x = rand.Next (1, 5)*-1;
+		y = rand.Next (1, 5)*-1;
+		Debug.Log ("This bee's second x velocity is: " + x);
+		Debug.Log ("This bee's second y velocity is: " + y);
+		transform.Translate (0.01f*x, 0.01f*y, 0f, Space.Self);
 
-		transform.RotateAround (node.transform.position, Vector3.forward, x * Time.deltaTime);
-		node.transform.RotateAround (Vector3.right, Vector3.back, x / 2 * Time.deltaTime);
-
-		node.transform.Translate (Vector3.left * Time.deltaTime);
-		node.transform.RotateAround (Vector3.right, Vector3.forward, x/3 * Time.deltaTime);
-		node.transform.Translate (Vector3.right * Time.deltaTime);
-		//node.transform.RotateAround (Vector3.zero, Vector3.down, 20 * Time.deltaTime);
-		//node.transform.RotateAround (Vector3.zero, Vector3.left, 20 * Time.deltaTime);
-		//node.transform.RotateAround (Vector3.zero, Vector3.up, 20 * Time.deltaTime);
-		//node.transform.RotateAround (Vector3.zero, Vector3.right, 20 * Time.deltaTime);
 	}
 }

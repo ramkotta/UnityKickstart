@@ -87,7 +87,7 @@ public class BeeSystem : MonoBehaviour {
 	void OnGUI(){
 		if (showNotification){
 			timeElapsed += Time.deltaTime;
-			if (timeElapsed >= 8){
+			if (timeElapsed >= 12){
 				showNotification = false;
 			}
 			GUI.BeginGroup(new Rect(10, 10, menu_width / 3, menu_height / 4));

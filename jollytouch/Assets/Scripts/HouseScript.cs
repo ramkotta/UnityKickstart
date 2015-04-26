@@ -72,9 +72,7 @@ public class HouseScript : MonoBehaviour {
 				amountIncr += 1;
 				hiveStatus = "Bee hive present";
 			}
-			if (amountIncr != 0) {
-				defendingBees = (int) Math.Round(defendingBees - amountDecr*defendingBees + amountIncr*defendingBees);
-			}
+			defendingBees = (int) Math.Round(defendingBees - amountDecr*defendingBees + amountIncr*defendingBees);
 		}
 		Debug.Log (id + " bees: " + defendingBees);
 	}

@@ -5,12 +5,16 @@ using System.Collections;
 public class BeeSystem : MonoBehaviour {
 	
 	public GameObject[] houses;
+	public GameObject zombee;
 	public Texture2D menu;
 
 	bool showNotification = false;
 	bool showingWindow = false;
 
 	string message = "";
+
+	GameObject[] beesDisplay;
+	int numZombeesDisplay;
 
 	int totalBees;
 	int attackingBees;
@@ -27,6 +31,12 @@ public class BeeSystem : MonoBehaviour {
 		attackingBees = 0;
 		housesConquered = 0;
 		difficulty = 0;
+		numZombeesDisplay = 4;
+		beesDisplay = new GameObject[11];
+		beesDisplay[0] = (GameObject) Instantiate(zombee, Vector3.zero, Quaternion.identity);
+		beesDisplay[1] = (GameObject) Instantiate(zombee, Vector3.zero, Quaternion.identity);
+		beesDisplay[2] = (GameObject) Instantiate(zombee, Vector3.zero, Quaternion.identity);
+		beesDisplay[3] = (GameObject) Instantiate(zombee, Vector3.zero, Quaternion.identity);
 	}
 	
 	public bool setAttackingBees(int attackers) {
@@ -74,6 +84,18 @@ public class BeeSystem : MonoBehaviour {
 				Debug.Log(difficulty);
 			}
 		}
+		numZombeesDisplay = numZombees / 10;
+		if (numZombeesDisplay > 10) numZombeesDisplay = 10;
+		for (int i = 0; i <= numZombeesDisplay; i++){
+			if (beesDisplay[i] == null){
+				beesDisplay[i] = Instantiate(zombee);
+			}
+		}
+		for (int i = numZombeesDisplay + 1; i < beesDisplay.Length; i++){
+			if (beesDisplay[i] != null){
+				Destroy(beesDisplay[i]);
+			}
+		}
 	}
 
 	public bool showMenu(bool mouseOver, bool attackSetup){
@@ -107,10 +129,4 @@ public class BeeSystem : MonoBehaviour {
 		GUI.color = Color.white;
 		GUI.EndGroup();
 	}
-
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
-

@@ -38,15 +38,26 @@ public class BeeSystem : MonoBehaviour {
 		return false;
 	}
 
-	public void addZombees(int numZombees, int id){
-		int beeDiff = numZombees - attackingBees;
+	public void addZombees(int defendingBees, int numZombees, int id){
+		int beeDiff;
+		if (numZombees == attackingBees) {
+			beeDiff = 0;
+		} else if (numZombees > attackingBees) {
+			//totalBees-=attackingBees;
+			beeDiff = numZombees - attackingBees;
+		} else {
+			beeDiff = numZombees;
+		}
 		totalBees += beeDiff;
-		message = "You sent in " + attackingBees + " zombees";
-		if (beeDiff > 0){
-			message = " and brought back " + beeDiff + " new zom-bees!";
-			houses[id].GetComponent<HouseScript>().createHouse(difficulty);
+		message = "You sent in " + attackingBees + " zom-bees";
+		if (beeDiff > 0) {
+			message += ". You sacrificed " + (attackingBees - attackingBees/3) + " zom-bees for a net " + beeDiff + " zom-bees!";
+			houses [id].GetComponent<HouseScript> ().createHouse (difficulty);
+		} else if (beeDiff == 0) {
+			totalBees -= attackingBees;
+			message += " but none came back.";
 		} else if (beeDiff < 0){
-			message = " but only  " + -1 * beeDiff + " came back.";
+			message += ". There were " + defendingBees + " defending bees! You lost your " + attackingBees + " zom-bees.";
 		}
 		Debug.Log(totalBees + ": " + numZombees + ": " + message);
 		timeElapsed = 0;
@@ -74,13 +85,13 @@ public class BeeSystem : MonoBehaviour {
 	void OnGUI(){
 		if (showNotification){
 			timeElapsed += Time.deltaTime;
-			if (timeElapsed >= 4){
+			if (timeElapsed >= 8){
 				showNotification = false;
 			}
 			GUI.BeginGroup(new Rect(10, 10, menu_width / 3, menu_height / 4));
 			GUI.DrawTexture(new Rect(0, 0, menu_width / 3, menu_height / 4), menu);
 			GUI.color = Color.black;
-			GUI.Label(new Rect(10, 10, 200, 30), message);
+			GUI.Label(new Rect(10, 10, 200, 100), message);
 			GUI.color = Color.white;
 			GUI.EndGroup();
 		}

@@ -143,7 +143,7 @@ public class HouseScript : MonoBehaviour {
 							} else {
 								attackingBees *= -1;
 							}
-							parent.GetComponent<BeeSystem>().addZombees(attackingBees, id);
+							parent.GetComponent<BeeSystem>().addZombees(defendingBees, attackingBees, id);
 						}
 					} else {
 						Debug.Log("Das it mane");

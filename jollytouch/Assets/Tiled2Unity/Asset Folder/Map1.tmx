@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="30" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="plant LPC" tilewidth="32" tileheight="32">
+  <image source="plant LPC.png" width="416" height="416"/>
+ </tileset>
+ <tileset firstgid="170" name="terrain LPC" tilewidth="32" tileheight="32">
+  <image source="../../LPC_Terrain_0/terrain.png" width="1024" height="1024"/>
+ </tileset>
+ <tileset firstgid="1194" name="tileset_terrain" tilewidth="32" tileheight="32">
+  <image source="tileset_terrain.png" width="256" height="96"/>
+ </tileset>
+ <tileset firstgid="1218" name="Collision" tilewidth="32" tileheight="32">
+  <image source="RED.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="1219" name="House" tilewidth="32" tileheight="32">
+  <image source="house pieces.PNG" width="684" height="500"/>
+ </tileset>
+ <tileset firstgid="1534" name="House2" tilewidth="32" tileheight="32">
+  <image source="house2.png" width="400" height="224"/>
+ </tileset>
+ <tileset firstgid="1618" name="house3" tilewidth="32" tileheight="32">
+  <image source="adobe building set/adobe6.png" width="512" height="384"/>
+ </tileset>
+ <tileset firstgid="1810" name="bee" tilewidth="32" tileheight="32">
+  <image source="bee.png" width="96" height="128"/>
+ </tileset>
+ <tileset firstgid="1822" name="bridge" tilewidth="32" tileheight="32">
+  <image source="bridges.png" width="192" height="224"/>
+ </tileset>
+ <layer name="Grass Base" width="50" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzVWEkKwzAMTHNstv+/KZA3FdMKhNEyXuQ0hyFUyJK1TdRcr2m6HoDTgXV2mWX5e/4il6+Kfik0v1ZsJNuds/yOFIN3hmNzdKW8oHa0s3k+DvZby7kkb63PCvhFe6XXPUbZIj2vRvTU7PJes/o86e2ZrW22z3G516fanVAcTj5abKPz34pjkB+eB692SOySTs+ZIKA9VDLjXA/pDctuCa9E5Ce6V7T4vLh7zk/kLPI4TqcfpJg1feTONbykzUNLjvK4am0lLrP4bBSnorB2yzyuCD8WElesCqeNfGcgdf1XINyMvF96745Ivj1Zzh0lu9YILAE7912g3SIBmeUnxL38+IWed9+nB6LiGFVPZO6jckR+onuBxyPNUi7zdi6uf1cfj+Benoce/pINy47GC5JsE3ix5/esJ9as99yi3+Ui0Oqj9n+OVCMpryX2a+5C+AAc41K6
+  </data>
+ </layer>
+ <layer name="Rivers" width="50" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztlgsKgzAQREOOZW7SnqT1JG1PkvYkSS9jhASGIdZEWsvKPlgUIe5MdvwYoyiKoiiKoijH5WKNuUKN9t+KtnFLuu+5QqqHcB8xHyX7eMNMenxwJmu1V07P4KHFB2rHtYHuU/bmtJMf7l/zUdOO64ZUz4Vy5OdXM+P9rPVj7az79UFHef4wu9H2ZaAFRz3wPNC1oUE34yuz4V7f8IF91qpHf2svt5ABad8xn72UrEl+//OceEbSZlPw4CdmT1K9zJTMSc0Z4iFnkmcy4w/0zKz9z04BynSf
+  </data>
+ </layer>
+ <layer name="Bridge" width="50" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztz7ENgDAQBMHLvgtMYOi/RL4ESwQGaUba/C4BAAAAAOBrjkpGd9buJe/M3n91989/rHgAT0UA9w==
+  </data>
+ </layer>
+ <layer name="Trees" width="50" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt1MsJgEAMRVGr0QK0InXvryK/dfqWIi4yGhmRe+BtZAghEydJAAAAAADAH6VKFrsJB7lSxG7iZ0qlUmrD2VGZlPnVju5plFbpHGotyqpsh28hc7KKMU/POYX68v68wboznu9zrwzGs9b31Loz53re9x1S7+offlrzjh1wXxli
+  </data>
+ </layer>
+ <layer name="Tree Tops" width="50" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztlDsOwjAQRHMaOATQAz0BDkAOwbcMv5JfbstQRLKitTJrhARinvSateO1xnayTAghhBBCCCGEEN9KD/bhgJi7hCu4/uiO0hjCERwTc0u4h4fI+AZu4S6oeXJisfKcwBxOie8v8ApvkfEjPMFzUPPkxNKWZ42VK8MdPmAV1Dw5sbTlWWPl+otYuVqk3v3U834xg/NGzfP/sXpbd59Z853zXsCiUYu9lw7sEr2tu8+8Qfa8Wdj34untWfOfeQJQPzAp
+  </data>
+ </layer>
+ <layer name="Houses" width="50" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztljsPgzAMhM1QBmiBFqkPWuD//0naW9gYIufCQ71PuvFixYlPNhNHYDqZfSHLzbJ8/foNal6hG9RG1C/gLaEzdHGeU8FXO70f+HpogMaIe9zhfUBP6OU8p4PvvcFbChGKJ3di5jMVntwJmU9WLobCyJ0lWLm4dj9SwepHKrbeB1gw9gEGsf1kz6U3Q/fSzxnvjpMq5/4BZcO+0F8+JtplhBBCsPgBN6AS/w==
+  </data>
+ </layer>
+ <layer name="Collisions" width="50" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztlksOgCAMRFl4/0N5MvcVmP6gSuYlLkyAzrS10hohhBBCCCHncl/v549I3fRRS8RHryer+tTqw6Nxhx+ND6RdU4vVNev5QHEsOjQaM33I3I3WePKH9mX1HNKZXf/d88E6uzLjVPnwnNXrg2htKv5/aD7MvtmVsbM54d73Fbz5m81m710iGjtyJtor3x8Xi2VT
+  </data>
+ </layer>
+</map>

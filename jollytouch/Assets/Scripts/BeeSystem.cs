@@ -39,19 +39,21 @@ public class BeeSystem : MonoBehaviour {
 	}
 
 	public void addZombees(int defendingBees, int numZombees, int id){
-		int beeDiff;
+		int beeDiff = 0;
 		if (numZombees == attackingBees) {
 			beeDiff = 0;
 		} else if (numZombees > attackingBees) {
 			//totalBees-=attackingBees;
 			beeDiff = numZombees - attackingBees;
-		} else {
+		} else if (numZombees < 0) {
 			beeDiff = numZombees;
+		} else {
+			beeDiff = numZombees - (attackingBees/3)*2;
 		}
 		totalBees += beeDiff;
 		message = "You sent in " + attackingBees + " zom-bees";
 		if (beeDiff > 0) {
-			message += ". You sacrificed " + (attackingBees - attackingBees/3) + " zom-bees for a net " + beeDiff + " zom-bees!";
+			message += ". There were " + defendingBees + " defending bees! You sacrificed " + (attackingBees - attackingBees/3) + " zom-bees for a net " + beeDiff + " zom-bees!";
 			houses [id].GetComponent<HouseScript> ().createHouse (difficulty);
 		} else if (beeDiff == 0) {
 			totalBees -= attackingBees;
